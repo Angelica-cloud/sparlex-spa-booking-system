@@ -1,0 +1,241 @@
+{% extends "spa/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Gallery Hero -->
+<div class="container-fluid py-5 bg-light">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">
+            Relax. Refresh. Rejuvenate.
+        </h1>
+
+        <p class="text-muted mx-auto" style="max-width:700px;">
+            Explore our premium spa experience through our collection of
+            treatments, wellness sessions and luxurious facilities.
+        </p>
+
+        <span class="badge bg-primary px-4 py-2 rounded-pill mb-3">
+            Our Gallery
+        </span>
+
+    </div>
+</div>
+
+
+<!-- Gallery Section -->
+<div class="container py-5">
+
+    <!-- Category Pills -->
+    <div class="text-center mb-5">
+
+        <ul class="nav nav-pills justify-content-center gap-3">
+
+            <li class="nav-item">
+                <a class="nav-link active rounded-pill px-4 py-2"
+                   data-bs-toggle="pill"
+                   href="#tab-1">
+                    All Gallery
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link rounded-pill px-4 py-2"
+                   data-bs-toggle="pill"
+                   href="#tab-2">
+                    Skin Care
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link rounded-pill px-4 py-2"
+                   data-bs-toggle="pill"
+                   href="#tab-3">
+                    Steam Bath
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link rounded-pill px-4 py-2"
+                   data-bs-toggle="pill"
+                   href="#tab-4">
+                    Stone Therapy
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link rounded-pill px-4 py-2"
+                   data-bs-toggle="pill"
+                   href="#tab-5">
+                    Facial Massage
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+<div class="container py-5">
+
+    <div class="gallery-masonry">
+
+        <!-- ALL 13 gallery cards here -->
+
+    <!-- Gallery 1 -->
+<div class="gallery-card">
+        <img src="{% static 'img/gallery-1.jpg' %}" class="short" alt="Skin Care">
+        <div class="gallery-overlay">
+            <h5>Skin Care</h5>
+            <a href="{% static 'img/gallery-1.jpg' %}" data-lightbox="Gallery-1" class="gallery-btn">
+                <i class="fas fa-search-plus"></i>
+            </a>
+        </div>
+    </div>
+
+
+<!-- Gallery 2 -->
+<div class="gallery-card">
+        <img src="{% static 'img/gallery-2.jpg' %}" class="medium" alt="Steam Bath">
+        <div class="gallery-overlay">
+            <h5>Steam Bath</h5>
+            <a href="{% static 'img/gallery-2.jpg' %}" data-lightbox="Gallery-2" class="gallery-btn">
+                <i class="fas fa-search-plus"></i>
+            </a>
+        </div>
+    </div>
+
+
+<!-- Gallery 3 -->
+<div class="gallery-card">
+        <img src="{% static 'img/gallery-3.jpg' %}" class="tall" alt="Stone Therapy">
+        <div class="gallery-overlay">
+            <h5>Stone Therapy</h5>
+            <a href="{% static 'img/gallery-3.jpg' %}" data-lightbox="Gallery-3" class="gallery-btn">
+                <i class="fas fa-search-plus"></i>
+            </a>
+        </div>
+    </div>
+
+
+<!-- Gallery 4 -->
+<div class="gallery-card">
+        <img src="{% static 'img/gallery-4.jpg' %}" class="medium" alt="Facial Massage">
+        <div class="gallery-overlay">
+            <h5>Facial Massage</h5>
+            <a href="{% static 'img/gallery-4.jpg' %}" data-lightbox="Gallery-4" class="gallery-btn">
+                <i class="fas fa-search-plus"></i>
+            </a>
+        </div>
+    </div>
+
+
+<!-- Gallery 5 -->
+<div class="gallery-card">
+        <img src="{% static 'img/gallery-5.jpg' %}" class="short" alt="Skin Care">
+        <div class="gallery-overlay">
+            <h5>Skin Care</h5>
+            <a href="{% static 'img/gallery-5.jpg' %}" data-lightbox="Gallery-5" class="gallery-btn">
+                <i class="fas fa-search-plus"></i>
+            </a>
+        </div>
+    </div>
+
+
+<!-- Gallery 6 -->
+<div class="gallery-card">
+        <img src="{% static 'img/gallery-6.jpg' %}" class="tall" alt="Steam Bath">
+        <div class="gallery-overlay">
+            <h5>Steam Bath</h5>
+            <a href="{% static 'img/gallery-6.jpg' %}" data-lightbox="Gallery-6" class="gallery-btn">
+                <i class="fas fa-search-plus"></i>
+            </a>
+        </div>
+    </div>
+
+
+<!-- Gallery 7 -->
+<div class="gallery-card">
+        <img src="{% static 'img/gallery-7.jpg' %}" class="medium" alt="Stone Therapy">
+        <div class="gallery-overlay">
+            <h5>Stone Therapy</h5>
+            <a href="{% static 'img/gallery-7.jpg' %}" data-lightbox="Gallery-7" class="gallery-btn">
+                <i class="fas fa-search-plus"></i>
+            </a>
+        </div>
+    </div>
+
+
+<!-- Gallery 8 -->
+<div class="gallery-card">
+        <img src="{% static 'img/gallery-8.jpg' %}" class="medium" alt="Facial Massage">
+        <div class="gallery-overlay">
+            <h5>Facial Massage</h5>
+            <a href="{% static 'img/gallery-8.jpg' %}" data-lightbox="Gallery-8" class="gallery-btn">
+                <i class="fas fa-search-plus"></i>
+            </a>
+        </div>
+    </div>
+
+
+<!-- Gallery 9 -->
+<div class="gallery-card">
+        <img src="{% static 'img/gallery-9.jpg' %}" class="tall" alt="Skin Care">
+        <div class="gallery-overlay">
+            <h5>Skin Care</h5>
+            <a href="{% static 'img/gallery-9.jpg' %}" data-lightbox="Gallery-9" class="gallery-btn">
+                <i class="fas fa-search-plus"></i>
+            </a>
+        </div>
+        </div>
+
+<!-- Gallery 10 -->
+<div class="gallery-card">
+        <img src="{% static 'img/gallery-10.jpg' %}" class="medium" alt="Skin Care">
+        <div class="gallery-overlay">
+            <h5>Skin Care</h5>
+            <a href="{% static 'img/gallery-10.jpg' %}" data-lightbox="Gallery-10" class="gallery-btn">
+                <i class="fas fa-search-plus"></i>
+            </a>
+        </div>
+    </div>
+
+
+<!-- Gallery 11 -->
+<div class="gallery-card">
+        <img src="{% static 'img/gallery-11.jpg' %}" class="short" alt="Steam Bath">
+        <div class="gallery-overlay">
+            <h5>Steam Bath</h5>
+            <a href="{% static 'img/gallery-11.jpg' %}" data-lightbox="Gallery-11" class="gallery-btn">
+                <i class="fas fa-search-plus"></i>
+            </a>
+        </div>
+    </div>
+
+
+<!-- Gallery 12 -->
+<div class="gallery-card">
+        <img src="{% static 'img/gallery-12.jpg' %}" class="tall" alt="Steam Bath">
+        <div class="gallery-overlay">
+            <h5>Steam Bath</h5>
+            <a href="{% static 'img/gallery-12.jpg' %}" data-lightbox="Gallery-12" class="gallery-btn">
+                <i class="fas fa-search-plus"></i>
+            </a>
+        </div>
+    </div>
+
+
+<!-- Gallery 13 -->
+<div class="gallery-card">
+        <img src="{% static 'img/gallery-13.jpg' %}" class="medium" alt="Stone Therapy">
+        <div class="gallery-overlay">
+            <h5>Stone Therapy</h5>
+            <a href="{% static 'img/gallery-13.jpg' %}" data-lightbox="Gallery-13" class="gallery-btn">
+                <i class="fas fa-search-plus"></i>
+            </a>
+        </div>
+    </div>
+
+</div>
+</div>
+
+{% endblock %}

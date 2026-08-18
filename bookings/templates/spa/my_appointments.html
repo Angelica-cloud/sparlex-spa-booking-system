@@ -1,0 +1,179 @@
+{% extends "spa/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero -->
+<div class="container-fluid bg-breadcrumb py-5">
+    <div class="container text-center py-5">
+        <h1 class="display-4 text-white fw-bold">
+            My Appointments
+        </h1>
+
+        <p class="text-white">
+            View and manage all your spa bookings.
+        </p>
+    </div>
+</div>
+
+<div class="container py-5">
+
+    {% if appointments %}
+
+    <div class="row g-4">
+
+        {% for appointment in appointments %}
+
+        <div class="col-lg-6">
+
+            <div class="appointment-card h-100">
+
+                <!-- Service Image -->
+                {% if appointment.service.image %}
+                    <img src="{{ appointment.service.image.url }}"
+                         class="appointment-image"
+                         alt="{{ appointment.service.name }}">
+                {% else %}
+                    <img src="{% static 'img/about-1.jpg' %}"
+                         class="appointment-image"
+                         alt="Spa Service">
+                {% endif %}
+
+                <!-- Card Header -->
+                <div class="appointment-top">
+
+                    <div>
+
+                        <h4>
+                            {{ appointment.service.name }}
+                        </h4>
+
+                        <p class="text-muted mb-0">
+                            {{ appointment.service.duration }}
+                        </p>
+
+                    </div>
+
+                    {% if appointment.status == "Pending" %}
+
+                        <span class="badge bg-warning text-dark">
+                            Pending
+                        </span>
+
+                    {% elif appointment.status == "Confirmed" %}
+
+                        <span class="badge bg-success">
+                            Confirmed
+                        </span>
+
+                    {% elif appointment.status == "Completed" %}
+
+                        <span class="badge bg-primary">
+                            Completed
+                        </span>
+
+                    {% else %}
+
+                        <span class="badge bg-danger">
+                            Cancelled
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+                <hr>
+
+                <!-- Appointment Details -->
+
+                <div class="appointment-info">
+
+                    <p>
+                        <i class="fas fa-calendar-alt text-primary me-2"></i>
+                        {{ appointment.appointment_date }}
+                    </p>
+
+                    <p>
+                        <i class="fas fa-clock text-primary me-2"></i>
+                        {{ appointment.appointment_time }}
+                    </p>
+
+                    <p>
+                        <i class="fas fa-money-bill-wave text-primary me-2"></i>
+                        ₦{{ appointment.service.price }}
+                    </p>
+
+                    {% if appointment.special_request %}
+                    <p>
+                        <i class="fas fa-comment text-primary me-2"></i>
+                        {{ appointment.special_request }}
+                    </p>
+                    {% endif %}
+
+                </div>
+
+                <!-- Button -->
+
+                <div class="mt-4">
+
+                    {% if appointment.status == "Pending" %}
+
+                    <form method="POST"
+                          action="{% url 'cancel_appointment' appointment.id %}">
+
+                        {% csrf_token %}
+
+                        <button type="submit"
+                                class="btn btn-outline-danger rounded-pill cancel">
+
+                            Cancel Booking
+
+                        </button>
+
+                    </form>
+
+                    {% else %}
+
+                    <button class="btn btn-light rounded-pill" disabled>
+
+                        {{ appointment.status }}
+
+                    </button>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+    {% else %}
+
+    <div class="text-center py-5">
+
+        <i class="fas fa-spa fa-4x text-primary mb-4"></i>
+
+        <h3>No Appointments Yet</h3>
+
+        <p class="text-muted">
+            Your wellness journey starts with your first booking.
+        </p>
+
+        <a href="{% url 'appointment' %}"
+           class="btn btn-primary rounded-pill px-5">
+
+            Book Appointment
+
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

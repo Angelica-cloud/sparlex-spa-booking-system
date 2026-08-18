@@ -1,0 +1,162 @@
+{% extends "spa/base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Header -->
+{% comment %} <div class="container-fluid bg-breadcrumb py-5">
+    <div class="container text-center py-5">
+        <h1 class="display-4 text-white mb-3">Welcome Back</h1>
+        <p class="text-white">
+            Log in to manage your appointments and enjoy a seamless salon experience.
+        </p>
+    </div>
+</div> {% endcomment %}
+
+<!-- Login Section -->
+<div class="auth-section">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-6 col-md-8">
+
+                <div class="auth-card">
+
+                    <div class="text-center mb-4">
+
+                        <div class="auth-logo">
+                            <i class="fas fa-user"></i>
+                        </div>
+
+                        <h2 class="auth-title">
+                            Login to Sparlex
+                        </h2>
+
+                        <p class="auth-subtitle">
+                            Welcome back! Enter your details below.
+                        </p>
+
+                    </div>
+
+                    <!-- Django Messages -->
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-{{ message.tags }}{% endif %}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="POST" action="{% url 'login' %}" class="needs-validation" novalidate>
+
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+
+                            <label>Username</label>
+
+                            <div class="auth-input">
+
+                                <i class="fas fa-user"></i>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="username"
+                                    placeholder="Enter your username"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label>Password</label>
+
+                            <div class="auth-input">
+
+                                <i class="fas fa-lock"></i>
+
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="loginPassword"
+                                    name="password"
+                                    minlength="6"
+                                    placeholder="Enter your password"
+                                    required>
+
+                                <button
+                                    type="button"
+                                    class="toggle-password"
+                                    onclick="togglePassword('loginPassword', this)">
+
+                                    <i class="fas fa-eye"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+
+                            <div class="form-check">
+
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="rememberMe">
+
+                                <label class="form-check-label text-white" for="rememberMe">
+
+                                    Remember Me
+
+                                </label>
+
+                            </div>
+
+                            <a href="#">
+                                Forgot Password?
+                            </a>
+
+                        </div>
+
+                        <button  type="submit"
+                            class="btn btn-primary w-100">
+
+                            Login
+
+                        </button>
+
+                        <div class="text-center mt-4">
+
+                            <span class="text-white">
+
+                                Don't have an account?
+
+                            </span>
+
+                            <a href="{% url 'signup' %}" class="fw-bold">
+
+                                Create One
+
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,384 @@
+{% extends "spa/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero -->
+<div class="container-fluid bg-breadcrumb py-5">
+    <div class="container text-center py-5">
+        <h1 class="display-4 text-white fw-bold">
+            Book Your Spa Experience
+        </h1>
+
+        <p class="text-white mt-3 mb-0 mx-auto" style="max-width:700px;">
+            Relax, refresh and rejuvenate with our premium spa treatments.
+            Reserve your perfect wellness session in just a few clicks.
+        </p>
+    </div>
+</div>
+
+<!-- Appointment -->
+<div class="container py-5">
+
+    <div class="row g-5">
+
+        <!-- Booking Form -->
+        <div class="col-lg-8">
+
+            <div class="booking-card">
+
+                <div class="mb-4">
+
+                    <h2 class="fw-bold">
+                        <i class="fas fa-spa text-primary me-2"></i>
+                        Book Appointment
+                    </h2>
+
+                    <p class="text-muted">
+                        Complete the form below to reserve your spa session.
+                    </p>
+
+                </div>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <!-- Service -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+
+                            <i class="fas fa-leaf text-primary me-2"></i>
+
+                            Select Service
+
+                        </label>
+
+                        <select
+    class="form-select"
+    id="service"
+    name="service"
+    required>
+
+    <option value="">Choose a Service</option>
+
+    {% for service in services %}
+
+    <option
+        value="{{ service.id }}"
+        data-price="{{ service.price }}"
+        data-duration="{{ service.duration }}">
+
+        {{ service.name }}
+
+    </option>
+
+    {% endfor %}
+
+</select>
+</div>
+
+                    <!-- Date -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+
+                            <i class="far fa-calendar-alt text-primary me-2"></i>
+
+                            Appointment Date
+
+                        </label>
+
+                        <input
+
+                            type="date"
+
+                            class="form-control"
+
+                            id="date"
+
+                            name="appointment_date"
+
+                            required>
+
+                    </div>
+
+                    <!-- Time -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+
+                            <i class="far fa-clock text-primary me-2"></i>
+
+                            Preferred Time
+
+                        </label>
+
+                        <select
+
+                            class="form-select"
+
+                            id="time"
+
+                            name="appointment_time"
+
+                            required>
+
+                            <option value="">Choose Time</option>
+
+                            <option>9:00 AM</option>
+
+                            <option>10:30 AM</option>
+
+                            <option>12:00 PM</option>
+
+                            <option>2:00 PM</option>
+
+                            <option>3:30 PM</option>
+
+                            <option>5:00 PM</option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Name -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+
+                            <i class="fas fa-user text-primary me-2"></i>
+
+                            Full Name
+
+                        </label>
+                        <input
+
+                            type="text"
+
+                            class="form-control"
+
+                            id="fullname"
+
+                            name="customer_name"
+
+                            placeholder="Enter your full name"
+
+                            required>
+
+                    </div>
+
+                    <!-- Email -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+
+                            <i class="far fa-envelope text-primary me-2"></i>
+
+                            Email Address
+
+                        </label>
+
+                        <input
+
+                            type="email"
+
+                            class="form-control"
+
+                            id="email"
+
+                            name="email"
+
+                            placeholder="Enter your email"
+
+                            required>
+
+                    </div>
+
+                    <!-- Phone -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+
+                            <i class="fas fa-phone text-primary me-2"></i>
+
+                            Phone Number
+
+                        </label>
+
+                        <input
+
+                            type="text"
+
+                            class="form-control"
+
+                            id="phone"
+
+                            name="phone"
+
+                            placeholder="Enter your phone number"
+
+                            required>
+
+                    </div>
+
+                    <!-- Notes -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+
+                            <i class="fas fa-comment-dots text-primary me-2"></i>
+
+                            Special Request
+
+                        </label>
+
+                        <textarea
+
+                            class="form-control"
+
+                            id="notes"
+
+                            name="special_request"
+
+                            rows="4"
+
+                            placeholder="Anything you'd like us to know?"></textarea>
+
+                    </div>
+
+                    <button class="btn btn-primary rounded-pill px-5 py-3 w-100">
+
+                        <i class="fas fa-calendar-check me-2"></i>
+
+                        Book Appointment
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- Booking Summary -->
+
+        <div class="col-lg-4">
+
+            <div class="booking-summary">
+
+                <h3 class="fw-bold mb-4">
+
+                    Booking Summary
+
+                </h3>
+
+                <div class="summary-item">
+
+                    <small>Service</small>
+
+                    <h6 id="sumService">Not Selected</h6>
+
+                </div>
+
+                <div class="summary-item">
+
+                    <small>Date</small>
+
+                    <h6 id="sumDate">--</h6>
+
+                </div>
+
+                <div class="summary-item">
+
+                    <small>Time</small>
+
+                    <h6 id="sumTime">--</h6>
+
+                </div>
+
+                <div class="summary-item">
+
+                    <small>Name</small>
+
+                    <h6 id="sumName">--</h6>
+
+                </div>
+
+                <div class="summary-item">
+
+                    <small>Email</small>
+
+                    <h6 id="sumEmail">--</h6>
+
+                </div>
+
+                <div class="summary-item">
+
+                    <small>Phone</small>
+
+                    <h6 id="sumPhone">--</h6>
+
+                </div>
+
+                <div class="summary-item">
+
+    <small>Duration</small>
+
+    <h6 id="sumDuration">--</h6>
+
+</div>
+
+<div class="summary-item">
+
+    <small>Price</small>
+
+    <h6 id="sumPrice">--</h6>
+
+</div>
+
+                <div class="alert alert-light mt-4 border-0 rounded-4">
+
+                    🌿 Your perfect wellness journey begins here.
+
+                </div>
+                <div class="mt-4 text-center">
+
+                    <img src="{% static 'img/about-1.jpg' %}"
+                         class="img-fluid rounded-4 shadow-sm mb-3"
+                         alt="Spa"
+                         style="max-height:220px; object-fit:cover;">
+
+                    <h5 class="text-primary">
+                        Relax • Refresh • Rejuvenate
+                    </h5>
+
+                    <p class="text-muted small mb-0">
+                        Every appointment is designed to help you unwind and
+                        leave feeling renewed.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+
+</script>
+
+{% endblock %}

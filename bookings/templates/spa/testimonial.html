@@ -1,0 +1,253 @@
+{% extends "spa/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero -->
+<div class="container-fluid bg-breadcrumb py-5">
+    <div class="container text-center py-5">
+        <h1 class="display-3 text-white">Testimonials</h1>
+        <p class="text-white fs-5">
+            Hear what our amazing clients have to say about Sparlex.
+        </p>
+    </div>
+</div>
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h5 class="text-primary text-uppercase">
+            Client Reviews
+        </h5>
+
+        <h1>
+            Trusted By Hundreds Of Happy Clients
+        </h1>
+
+        <p class="text-muted mx-auto" style="max-width:700px;">
+            Our clients are at the heart of everything we do.
+            Here's what they say after visiting Sparlex.
+        </p>
+
+    </div>
+    <div class="owl-carousel testimonial-carousel">
+        <div class="testimonial-card text-center">
+
+    <div class="mb-4">
+
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+
+    </div>
+
+    <p>
+
+        "Booking online was incredibly easy, and the barber paid attention to every detail.
+        I left looking and feeling my best."
+
+    </p>
+
+    <img
+        src="{% static 'img/testimonial-3.jpg' %}"
+        class="testimonial-image"
+        alt="Client">
+
+    <h5 class="mt-4 mb-1">
+
+        Vanilla
+
+    </h5>
+
+    <span class="text-muted">
+
+        Software Engineer
+
+    </span>
+
+</div>
+
+<div class="testimonial-card text-center">
+
+    <div class="mb-4">
+
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+
+    </div>
+
+    <p>
+
+        "The environment was clean and relaxing.
+The staff were welcoming,
+and my haircut exceeded my expectations."
+
+    </p>
+
+    <img
+        src="{% static 'img/testimonial-2.jpg' %}"
+        class="testimonial-image"
+        alt="Client">
+
+    <h5 class="mt-4 mb-1">
+
+        Micheal Peters
+
+    </h5>
+
+    <span class="text-muted">
+
+        Business Owner
+
+    </span>
+
+</div>
+
+<div class="testimonial-card text-center">
+
+    <div class="mb-4">
+
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+        <i class="fas fa-star text-warning"></i>
+
+    </div>
+
+    <p>
+
+        "Sparlex has become my regular barbershop.
+The online appointment system saves me so much time.""
+
+    </p>
+
+    <img
+        src="{% static 'img/testimonial-1.jpg' %}"
+        class="testimonial-image"
+        alt="Client">
+
+    <h5 class="mt-4 mb-1">
+
+        Grace Williams
+
+    </h5>
+
+    <span class="text-muted">
+
+        Marketing Consultant
+
+    </span>
+
+</div>
+</div>
+</div>
+
+<div class="container pb-5">
+
+<div class="row text-center">
+
+<div class="col-md-3">
+
+<h1 class="text-primary">
+
+5000+
+
+</h1>
+
+<p>
+
+Happy Clients
+
+</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h1 class="text-primary">
+
+12+
+
+</h1>
+
+<p>
+
+Professional Barbers
+
+</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h1 class="text-primary">
+
+8+
+
+</h1>
+
+<p>
+
+Years Experience
+
+</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h1 class="text-primary">
+
+4.9★
+
+</h1>
+
+<p>
+
+Average Rating
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="container-fluid bg-primary py-5">
+
+<div class="container text-center">
+
+<h2 class="text-white">
+
+Ready For Your Fresh Look?
+
+</h2>
+
+<p class="text-white">
+
+Book your appointment today and experience
+professional grooming like never before.
+
+</p>
+
+<a href="{% url 'appointment' %}"
+
+class="btn btn-light rounded-pill px-5 py-3">
+
+Book Appointment
+
+</a>
+
+</div>
+
+</div>
+
+{% endblock %}
