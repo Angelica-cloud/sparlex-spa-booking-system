@@ -27,7 +27,14 @@ SECRET_KEY = 'django-insecure-sparlex-dev-key-2026'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+import os
+
+ALLOWED_HOSTS = [
+    'sparlex-spa-booking-system.onrender.com',
+    '.onrender.com',  # allows any onrender.com subdomain
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
